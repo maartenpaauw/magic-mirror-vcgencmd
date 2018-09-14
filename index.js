@@ -17,13 +17,15 @@ app.get('/api/v1/magic-mirror/display', (req, res) => {
 })
 
 app.post('/api/v1/magic-mirror/display', (req, res) => {
-    exec(`${command} ${req.body.state}`, (error, stdout, stderr) => {
+    const convert = JSON.parse(req.body.state) ? 1 : 0;
+    exec(`${command} ${convert}`, (error, stdout, stderr) => {
         res.send(parseResult(stdout))
     })
 })
 
 parseResult = (res) => {
-    return res.split('=')[1]
+    const state = parseInt(res.split('=')[1])
+    return { state: Boolean(state) }
 }
 
 app.listen(3000)
