@@ -4,9 +4,7 @@ const { exec } = require('child_process')
 
 const app = express()
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
+app.use(bodyParser.json())
 
 const command = 'vcgencmd display_power'
 
