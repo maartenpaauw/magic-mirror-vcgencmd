@@ -47,6 +47,20 @@ $ pm2 save
 
 The webserver will start when the Raspberry Pi reboots.
 
+#### Home Assistant
+
+```yaml
+- platform: rest
+  name: magic_mirror
+  resource: http://magicmirror.local:3000/api/v1/magic-mirror/display
+  method: post
+  body_on: '{"state": "true"}'
+  body_off: '{"state": "false"}'
+  is_on_template: "{{ value_json.state }}"
+  headers:
+    Content-Type: application/json
+```
+
 ## API endpoints
 
 ### GET /api/v1/magic-mirror/display
