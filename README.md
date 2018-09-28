@@ -55,9 +55,9 @@ Will return the current state.
 
 #### Returns
 
-```json
+```javascript
 {
-    "state": false
+    "state": false // or true
 }
 ```
 
@@ -67,33 +67,17 @@ Will turn the display on or off and return the current state.
 
 #### Body
 
-```json
+```javascript
 {
-    "state": false
-}
-```
-
-or
-
-```json
-{
-    "state": true
+    "state": false // or true
 }
 ```
 
 #### Returns
 
-```json
+```javascript
 {
-    "state": false
-}
-```
-
-or
-
-```json
-{
-    "state": true
+    "state": false // or true
 }
 ```
 
